@@ -35,5 +35,31 @@ describe("QueryProcessor", () => {
           ));
     });
 
+    test('should return 33 plus 23?', () => {
+        const query = "What is 33 plus 23?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "56"
+          ));
+    });
+
+    test('should return 95', () => {
+        const query = "Which of the following numbers is the largest: 87, 47, 95?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "95"
+          ));
+    });
+
+    test('should return 77', () => {
+        const query = "Which of the following numbers is the largest: 77, 43, 12?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "77"
+          ));
+    });
+
+    
+
 
 });

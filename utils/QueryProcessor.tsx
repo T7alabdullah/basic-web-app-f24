@@ -19,5 +19,24 @@ export default function QueryProcessor(query: string): string {
     return ( "Talal" );
   }
 
+
+// Handle addition queries dynamically
+if (query.toLowerCase().startsWith("what is") && query.toLowerCase().includes("plus")) {
+  const parts = query.toLowerCase().split(" ");
+  const num1 = parseInt(parts[2], 10);
+  const num2 = parseInt(parts[4], 10);
+  return (num1 + num2).toString();
+}
+
+// Handle largest number queries dynamically
+if (query.toLowerCase().startsWith("which of the following numbers is the largest")) {
+  const matches = query.toLowerCase().match(/\d+/g); // Extract all numbers from the query
+  if (matches) { // Ensure matches is not null
+    const numbers = matches.map(Number); // Convert them to integers
+    const largestNumber = Math.max(...numbers);
+    return largestNumber.toString();
+  }
+}
+
   return "";
 }
