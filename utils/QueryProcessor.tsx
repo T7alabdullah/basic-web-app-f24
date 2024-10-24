@@ -46,5 +46,13 @@ if (query.toLowerCase().startsWith("what is") && query.toLowerCase().includes("m
   return (num1 * num2).toString();
 }
 
+// Handle subtraction queries dynamically
+if (query.toLowerCase().startsWith("what is") && query.toLowerCase().includes("minus")) {
+  const parts = query.toLowerCase().split(" ");
+  const num1 = parseInt(parts[2], 10);
+  const num2 = parseInt(parts[4], 10);
+  return (num1 - num2).toString();
+}
+
   return "";
 }

@@ -59,7 +59,23 @@ describe("QueryProcessor", () => {
           ));
     });
 
-    
+    test('should return 46', () => {
+        const query = "What is 23 multiplied by 2?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "46"
+          ));
+    });
+
+    test('should return the result of 96 minus 50', () => {
+        const query = "What is 96 minus 50?";
+        const response = QueryProcessor(query);
+        expect(response).toBe("46");
+      });
+
+
+
+
 
 
 });
