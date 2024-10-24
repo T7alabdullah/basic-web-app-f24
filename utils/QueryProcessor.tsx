@@ -73,6 +73,30 @@ if (query.toLowerCase().startsWith("which of the following numbers are primes"))
   }
 }
 
+// Helper function to check if a number is a perfect square
+function isPerfectSquare(num: number): boolean {
+  const sqrt = Math.sqrt(num);
+  return sqrt === Math.floor(sqrt);
+}
+
+// Helper function to check if a number is a perfect cube
+function isPerfectCube(num: number): boolean {
+  const cbrt = Math.cbrt(num);
+  return cbrt === Math.floor(cbrt);
+}
+
+
+// Handle square and cube number queries dynamically
+if (query.toLowerCase().startsWith("which of the following numbers is both a square and a cube")) {
+  const matches = query.toLowerCase().match(/\d+/g);
+  if (matches) {
+    const squareAndCube = matches
+      .map(Number)
+      .filter(num => isPerfectSquare(num) && isPerfectCube(num));
+    return squareAndCube.join(", ");
+  }
+}
+
 
   return "";
 }
