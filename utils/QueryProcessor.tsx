@@ -98,5 +98,16 @@ if (query.toLowerCase().startsWith("which of the following numbers is both a squ
 }
 
 
+// Handle exponentiation queries dynamically
+if (query.toLowerCase().startsWith("what is") && query.toLowerCase().includes("to the power of")) {
+  const match = query.match(/what is (\d+) to the power of (\d+)/i);
+  if (match) {
+    const base = parseInt(match[1], 10);
+    const exponent = parseInt(match[2], 10);
+    return (base ** exponent).toString();
+  }
+}
+
+
   return "";
 }

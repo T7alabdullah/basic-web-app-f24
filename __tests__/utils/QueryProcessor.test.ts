@@ -85,6 +85,13 @@ describe("QueryProcessor", () => {
         expect(response).toBe("4096");
       });
 
+      test('should return the result of 65 to the power of 1', () => {
+        const query = "What is 65 to the power of 1?";
+        const response = QueryProcessor(query);
+        expect(response).toBe("65");
+      });
+      
+
 
 
 
