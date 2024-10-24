@@ -54,5 +54,25 @@ if (query.toLowerCase().startsWith("what is") && query.toLowerCase().includes("m
   return (num1 - num2).toString();
 }
 
+
+// Helper function to determine if a number is prime
+function isPrime(num: number): boolean {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+// Handle prime number queries dynamically
+if (query.toLowerCase().startsWith("which of the following numbers are primes")) {
+  const matches = query.toLowerCase().match(/\d+/g); // Extract all numbers from the query
+  if (matches) { // Ensure matches is not null
+    const primes = matches.map(Number).filter(isPrime); // Filter prime numbers
+    return primes.join(", ");
+  }
+}
+
+
   return "";
 }
