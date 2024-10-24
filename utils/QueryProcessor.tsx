@@ -38,5 +38,13 @@ if (query.toLowerCase().startsWith("which of the following numbers is the larges
   }
 }
 
+// Handle multiplication queries dynamically
+if (query.toLowerCase().startsWith("what is") && query.toLowerCase().includes("multiplied by")) {
+  const parts = query.toLowerCase().split(" ");
+  const num1 = parseInt(parts[2], 10);
+  const num2 = parseInt(parts[5], 10);
+  return (num1 * num2).toString();
+}
+
   return "";
 }
